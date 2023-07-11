@@ -7,7 +7,7 @@ int main(void)
     int iColumns;
     int iCounter1;
     int iCounter2;
-    int **ppPtr = NULL;
+    int **ppPtr = NULL; 
 
     printf("Enter value of rows & columns:\t");
     scanf("%d%d", &iRows, &iColumns);
