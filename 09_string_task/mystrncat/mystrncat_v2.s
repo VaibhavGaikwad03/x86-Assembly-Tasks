@@ -71,20 +71,17 @@ mystrncat:
     pushl   %ebp
     movl    %esp, %ebp
 
-    movl    $0, %eax
+    movl    8(%ebp), %esi
     movl    $50, %ecx
 loop_label_mystrncat_1:
-    movl    8(%ebp), %ebx
-    leal    (%ebx, %eax, 1), %ebx
-    movb    (%ebx), %dl
-    cmpb    $0, %dl
-    je      loop_label_mystrncat_1_out
-    addl    $1, %eax
+    lodsb
+    cmpb    $0, %al
+    je      loop_label_mystrncat_1_out    
     loop    loop_label_mystrncat_1
 loop_label_mystrncat_1_out:
-
+    subl    $1, %esi
+    movl    %esi, %edi
     movl    16(%ebp), %ecx
-    movl    %ebx, %edi
     movl    12(%ebp), %esi
 
     rep     movsb

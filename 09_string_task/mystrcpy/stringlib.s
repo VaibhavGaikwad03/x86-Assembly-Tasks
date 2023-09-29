@@ -5,7 +5,6 @@ mystrlen:
     pushl   %ebp
     movl    %esp, %ebp
 
-    subl    $16, %esp
     movl    $0, -4(%ebp)
 
     movl    8(%ebp), %esi   # string address
