@@ -6,14 +6,13 @@
 int main(void)
 {
     int fd;
-    char c;
-    int iBytesRead;
-    int iCounter;
+    int iCounter = 0;
     char buffer[4096];
     int iNoOfChars = 0;
     int iNoOfSpaces = 0;
     int iNoOfTabs = 0;
     int iNoOfLines = 0;
+    int iBytesRead = 0;
 
     fd = open("chars_spaces_tabs_newlines_count.txt", O_RDONLY);
 
@@ -25,18 +24,17 @@ int main(void)
 
     while (iBytesRead = read(fd, buffer, sizeof(buffer)))
     {
+        iNoOfChars += iBytesRead;   
+         
         for (iCounter = 0; iCounter < iBytesRead; iCounter++)
         {
-            iNoOfChars++;
-            c = buffer[iCounter];
-
-            if (c == ' ')
+            if (buffer[iCounter] == ' ')
                 iNoOfSpaces++;
 
-            else if (c == '\t')
+            else if (buffer[iCounter] == '\t')
                 iNoOfTabs++;
 
-            else if (c == '\n')
+            else if (buffer[iCounter] == '\n')
                 iNoOfLines++;
         }
     }
