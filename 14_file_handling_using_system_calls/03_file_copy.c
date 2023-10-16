@@ -6,8 +6,8 @@
 int main(void)
 {
     int fdSource;
-    int iReadBytes;
     int fdDestination;
+    int iReadBytes;
     char buffer[1024];
 
     fdSource = open("file_copy_source.txt", O_RDONLY);

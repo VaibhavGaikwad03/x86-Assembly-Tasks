@@ -44,6 +44,7 @@ label_if_1_out:
 
     movl    $msg_main_destination_file_name, (%esp)
     movl    $01101, 4(%esp)
+    movl    $0666, 8(%esp)
     call    open
     movl    %eax, -8(%ebp)
 

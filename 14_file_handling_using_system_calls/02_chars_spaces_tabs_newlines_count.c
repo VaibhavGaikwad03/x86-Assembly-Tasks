@@ -7,12 +7,12 @@ int main(void)
 {
     int fd;
     int iCounter = 0;
-    char buffer[4096];
     int iNoOfChars = 0;
     int iNoOfSpaces = 0;
     int iNoOfTabs = 0;
     int iNoOfLines = 0;
     int iBytesRead = 0;
+    char buffer[1024];
 
     fd = open("chars_spaces_tabs_newlines_count.txt", O_RDONLY);
 
